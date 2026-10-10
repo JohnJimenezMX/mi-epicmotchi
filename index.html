@@ -3070,7 +3070,7 @@ function verMomento(fase){
 function receta(){
   const r={};CONTROLES.forEach(c=>{(r[c.g]=r[c.g]||{})[c.k]=ajustes[c.k]});r.fondo.fondo=ajustes.fondo;return r;
 }
-let ultimaValidacion=[],ultimoEnvio='';
+let ultimaValidacion=[];var ultimoEnvio='';   // var: Listo puede pintarse al abrir la página, antes de llegar aquí
 function respaldo(){
   ultimaValidacion=validar();
   el.resp.value=JSON.stringify({version:VERSION,exportado:new Date().toISOString(),dispositivo:ajustes.disp,receta_pantalla:receta(),supuestos_programa:{...OPT},validacion:ultimaValidacion.map(r=>({estado:ETIQ[r.estado],tema:r.titulo,detalle:r.detalle})),mensajes:MENSAJES,ideas_de_habilidades:ajustes.ideas||{},perfil:Perfiles.exportar()},null,1);
