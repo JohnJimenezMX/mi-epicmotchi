@@ -4086,6 +4086,7 @@ function caja(){
   return d}
 function sincronizar(){const c=leer()||{};document.querySelectorAll('.cxCaja').forEach(d=>{const u=d.querySelector('.cxUrl'),k=d.querySelector('.cxClave');if(document.activeElement!==u)u.value=c.url||'';if(document.activeElement!==k)k.value=c.clave||'';d.querySelector('.cxEstado').textContent=c.url?'Conectado. Se envía por el puente.':'Sin conectar.'})}
 const _listo=miVistaListo;miVistaListo=function(M){const r=_listo.apply(this,arguments);try{M.appendChild(caja())}catch(e){}return r};
+try{if(typeof pintarMi==='function')pintarMi()}catch(e){}   // si la página abrió ya en Listo, se vuelve a pintar con la caja de conexión
 const est=$('enviarEstado');if(est&&est.parentNode)est.parentNode.insertBefore(caja(),est.nextSibling);
 window.ConexionPuente={leer,guardar};
 })();
